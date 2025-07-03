@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   input_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/27 22:51:39 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/27 22:51:39 by marvin           ###   ########.fr       */
+/*   Created: 2025/07/03 15:16:49 by marvin            #+#    #+#             */
+/*   Updated: 2025/07/03 15:16:49 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_atoi(char *s)
 {
-	t_node	*head;
+	long	num;
+	long	sign;
+	int		i;
 
-	head = NULL;
-	if (check_input(argc, argv) == 0)
-		printf("Error, wrong input\n");
-	else if (check_duplicate(argc, argv) == 0)
-		printf("One or more duplicate were found\n");
-	else
+	num = 0;
+	sign = 1;
+	i = 0;
+	if (s[i] == '-')
 	{
-		head = init_stack_a(argc, argv);
-		print_list(&head);
+		sign = -1;
+		i++;
 	}
-	free(head);
+	while (s[i])
+	{
+		num = num * 10 + (s[i] - '0');
+		i++;
+	}
+	num = num * sign;
+	return (num);
 }

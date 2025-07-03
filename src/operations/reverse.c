@@ -1,30 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/27 22:51:39 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/27 22:51:39 by marvin           ###   ########.fr       */
+/*   Created: 2025/07/03 15:43:05 by marvin            #+#    #+#             */
+/*   Updated: 2025/07/03 15:43:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
-{
-	t_node	*head;
-
-	head = NULL;
-	if (check_input(argc, argv) == 0)
-		printf("Error, wrong input\n");
-	else if (check_duplicate(argc, argv) == 0)
-		printf("One or more duplicate were found\n");
-	else
-	{
-		head = init_stack_a(argc, argv);
-		print_list(&head);
-	}
-	free(head);
-}

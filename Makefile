@@ -12,6 +12,7 @@ SRC = src/main.c \
 	  src/utils/errors.c \
 	  src/utils/free_list.c \
 	  src/utils/list_utils.c \
+	  src/utils/indexing.c \
 
 OBJ = $(SRC:.c=.o)
 

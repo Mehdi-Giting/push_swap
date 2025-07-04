@@ -39,5 +39,8 @@ t_node	*get_last_node(t_node **head);
 t_node	*get_before_last_node(t_node **head);
 int		is_sorted(t_node **head);
 void	print_list(t_node **head);
+int		*stack_to_array(t_node *head, int size);
+void	sort_array(int *array, int size);
+void	assign_indexes(t_node *stack, int *sorted_array, int size);
 
 #endif

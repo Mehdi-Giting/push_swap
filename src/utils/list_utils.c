@@ -80,10 +80,9 @@ void	print_list(t_node **head)
 	tmp_node = *head;
 	if (*head == NULL)
 		return ;
-	while (tmp_node->next != NULL)
+	while (tmp_node)
 	{
-		printf("[%i]", tmp_node->number);
+		printf("[num: %i | idx: %i]", tmp_node->number, tmp_node->index);
 		tmp_node = tmp_node->next;
 	}
-	printf("[%i]\n", tmp_node->number);
 }

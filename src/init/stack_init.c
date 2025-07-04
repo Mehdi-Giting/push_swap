@@ -24,35 +24,6 @@ t_node	*create_node(int value)
 	return (new_node);
 }
 
-void	add_back(t_node **head, t_node *new_node)
-{
-	t_node *tmp_node;
-
-	tmp_node = *head;
-	if (*head == NULL)
-		*head = new_node;
-	else
-	{
-		while (tmp_node->next != NULL)
-			tmp_node = tmp_node->next;
-		tmp_node->next = new_node;
-	}
-}
-
-void	add_front(t_node **head, t_node *new_node)
-{
-	t_node *tmp_node;
-
-	tmp_node = *head;
-	if (*head == NULL)
-		*head = new_node;
-	else
-	{
-		new_node->next = tmp_node;
-		*head = new_node;
-	}
-}
-
 t_node	*init_stack_a(int argc, char **argv)
 {
 	t_node	*head;

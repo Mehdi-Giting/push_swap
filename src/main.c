@@ -12,45 +12,47 @@
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	t_node	*stack_a;
-	int		*array;
-	int		size;
+	t_node *stack_a = NULL;
+	t_node *stack_b = NULL;
 
-	if (argc < 2)
-		return (0);
+	// Simulate values in stack_a
+	add_back(&stack_a, create_node(10));
+	add_back(&stack_a, create_node(20));
+	add_back(&stack_a, create_node(30));
 
-	if (check_input(argc, argv) || check_duplicate(argc, argv))
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
+	int	*arr = stack_to_array(stack_a, list_size(&stack_a));
+	sort_array(arr, list_size(&stack_a));
+	assign_indexes(stack_a, arr, list_size(&stack_a));
 
-	// Step 1: Build stack from argv
-	stack_a = init_stack_a(argc, argv);
-
-	// Step 2: Convert to array
-	size = list_size(&stack_a);
-	array = stack_to_array(stack_a, size);
-	if (!array)
-	{
-		write(2, "Malloc error\n", 13);
-		return (1);
-	}
-
-	// Step 3: Sort array
-	sort_array(array, size);
-
-	// Step 4: Assign indexes
-	assign_indexes(stack_a, array, size);
-
-	// Step 5: Print result
-	print_list(&stack_a); // Should show each node’s number + index
+	printf("\n=== Before pb ===\n");
+	printf("A: "); print_list(&stack_a);
+	printf("\n");
+	printf("B: "); print_list(&stack_b);
 	printf("\n");
 
-	free(array);
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+
+	printf("\n=== After two pb ===\n");
+	printf("A: "); print_list(&stack_a);
+	printf("\n");
+	printf("B: "); print_list(&stack_b);
+	printf("\n");
+
+	pa(&stack_b, &stack_a);
+
+	printf("\n=== After pa ===\n");
+	printf("A: "); print_list(&stack_a);
+	printf("\n");
+	printf("B: "); print_list(&stack_b);
+	printf("\n");
+
+	// Cleanup
 	free_list(&stack_a);
-	return (0);
+	free_list(&stack_b);
 }
+
+
 

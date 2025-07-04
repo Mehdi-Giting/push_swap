@@ -42,5 +42,15 @@ void	print_list(t_node **head);
 int		*stack_to_array(t_node *head, int size);
 void	sort_array(int *array, int size);
 void	assign_indexes(t_node *stack, int *sorted_array, int size);
+void	swap_top(t_node **head);
+void	sa(t_node **a);
+void	sb(t_node **b);
+void	ss(t_node **a, t_node **b);
+void	pb(t_node **stack_a, t_node **stack_b);
+void	pa(t_node **stack_b, t_node **stack_a);
+void	rotate(t_node **head);
+void	ra(t_node **a);
+void	rb(t_node **b);
+void	rr(t_node **a, t_node **b);
 
 #endif

@@ -20,6 +20,9 @@
 typedef struct s_node
 {
 	int				number;
+	int				index;
+	int				cost_a;
+	int				cost_b;
 	struct s_node	*next;
 } t_node;
 

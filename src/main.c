@@ -12,44 +12,54 @@
 
 #include "push_swap.h"
 
-int	main(void)
+#include "push_swap.h"
+
+int	main(int argc, char **argv)
 {
-	t_node *stack_a = NULL;
-	t_node *stack_b = NULL;
+	t_node	*stack_a = NULL;
+	t_node	*stack_b = NULL;
+	int		*array;
+	int		size;
 
-	// Fill stack_a with sample data
-	add_back(&stack_a, create_node(10));
-	add_back(&stack_a, create_node(20));
-	add_back(&stack_a, create_node(30));
+	if (!check_input(argc, argv) || !check_duplicate(argc, argv))
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
 
-	// Fill stack_b with sample data
-	add_back(&stack_b, create_node(40));
-	add_back(&stack_b, create_node(50));
-	add_back(&stack_b, create_node(60));
+	// Init stack_a
+	stack_a = init_stack_a(argc, argv);
+	size = list_size(&stack_a);
 
-	printf("\n=== Before reverse rotates ===\n");
-	printf("A: "); print_list(&stack_a);
-	printf("B: "); print_list(&stack_b);
+	// Indexing
+	array = stack_to_array(stack_a, size);
+	sort_array(array, size);
+	assign_indexes(stack_a, array, size);
+	free(array);
 
-	rra(&stack_a);
-	rrb(&stack_b);
+	// Print before
+	write(1, "\n=== Before pushing ===\n", 24);
+	write(1, "A: ", 3);
+	print_list(&stack_a);
+	write(1, "B: ", 3);
+	print_list(&stack_b);
 
-	printf("\n=== After rra and rrb ===\n");
-	printf("A: "); print_list(&stack_a);
-	printf("B: "); print_list(&stack_b);
+	// Push by chunks
+	push_chunk_to_b(&stack_a, &stack_b, size);
 
-	rrr(&stack_a, &stack_b);
+	// Print after
+	write(1, "\n=== After pushing ===\n", 23);
+	write(1, "A: ", 3);
+	print_list(&stack_a);
+	write(1, "B: ", 3);
+	print_list(&stack_b);
 
-	printf("\n=== After rrr ===\n");
-	printf("A: "); print_list(&stack_a);
-	printf("B: "); print_list(&stack_b);
-
-	// Free memory
+	// Cleanup
 	free_list(&stack_a);
 	free_list(&stack_b);
-
 	return (0);
 }
+
 
 
 

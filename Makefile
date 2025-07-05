@@ -13,6 +13,8 @@ SRC = src/main.c \
 	  src/utils/free_list.c \
 	  src/utils/list_utils.c \
 	  src/utils/indexing.c \
+	  src/sorting/helper.c \
+	  src/sorting/sorting.c
 
 OBJ = $(SRC:.c=.o)
 

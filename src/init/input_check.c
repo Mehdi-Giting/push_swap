@@ -30,10 +30,10 @@ int	check_input(int argc, char **argv)
 				j++;
 		}
 		if (argv[i][j] != '\0')
-			return (1);
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	check_duplicate(int argc, char **argv)
@@ -52,10 +52,10 @@ int	check_duplicate(int argc, char **argv)
 		{
 			next_number = ft_atoi(argv[j]);
 			if (current_number == next_number)
-				return (1);
+				return (0);
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }

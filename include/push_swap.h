@@ -56,5 +56,8 @@ void	reverse_rotate(t_node **head);
 void	rra(t_node **a);
 void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
+int		get_chunk_count(int size);
+void	push_one_chunk(t_node **a, t_node **b, int lower, int upper, int size);
+void	push_chunk_to_b(t_node **a, t_node **b, int size);
 
 #endif

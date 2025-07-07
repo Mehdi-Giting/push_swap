@@ -21,8 +21,6 @@ typedef struct s_node
 {
 	int				number;
 	int				index;
-	int				cost_a;
-	int				cost_b;
 	struct s_node	*next;
 } t_node;
 
@@ -59,5 +57,8 @@ void	rrr(t_node **a, t_node **b);
 int		get_chunk_count(int size);
 void	push_one_chunk(t_node **a, t_node **b, int lower, int upper, int size);
 void	push_chunk_to_b(t_node **a, t_node **b, int size);
+void	sort_b_to_a(t_node **a, t_node **b);
+int		get_max_index(t_node *b);
+int 	get_position(t_node *b, int target_index);
 
 #endif

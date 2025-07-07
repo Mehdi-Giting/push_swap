@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-#include "push_swap.h"
-
 int	main(int argc, char **argv)
 {
 	t_node	*stack_a = NULL;
@@ -21,46 +19,47 @@ int	main(int argc, char **argv)
 	int		*array;
 	int		size;
 
+	if (argc < 2)
+		return (0);
+	// 1) Validate input
 	if (!check_input(argc, argv) || !check_duplicate(argc, argv))
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
-
-	// Init stack_a
+	// 2) Build stack A
 	stack_a = init_stack_a(argc, argv);
+	if (!stack_a)
+		return (1);
+	// 3) Assign indexes
 	size = list_size(&stack_a);
-
-	// Indexing
 	array = stack_to_array(stack_a, size);
+	if (!array)
+		return (1);
 	sort_array(array, size);
 	assign_indexes(stack_a, array, size);
 	free(array);
 
-	// Print before
-	write(1, "\n=== Before pushing ===\n", 24);
-	write(1, "A: ", 3);
-	print_list(&stack_a);
-	write(1, "B: ", 3);
-	print_list(&stack_b);
+	// 4) Show before work
+	// printf("\n=== Before sorting ===\n");
+	// printf("A: "); print_list(&stack_a);
+	// printf("B: "); print_list(&stack_b);
 
-	// Push by chunks
+	// 5) Phase 1: push to B in chunks
 	push_chunk_to_b(&stack_a, &stack_b, size);
 
-	// Print after
-	write(1, "\n=== After pushing ===\n", 23);
-	write(1, "A: ", 3);
-	print_list(&stack_a);
-	write(1, "B: ", 3);
-	print_list(&stack_b);
+	// 6) Phase 2: sort back from B to A
+	sort_b_to_a(&stack_a, &stack_b);
 
-	// Cleanup
+	// 7) Show after
+	// printf("\n=== After sorting ===\n");
+	// printf("A: "); print_list(&stack_a);
+	// printf("B: "); print_list(&stack_b);
+	// printf("\n");
+
+	// 8) Cleanup
 	free_list(&stack_a);
 	free_list(&stack_b);
 	return (0);
 }
-
-
-
-
 

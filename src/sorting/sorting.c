@@ -49,3 +49,23 @@ void	push_chunk_to_b(t_node **a, t_node **b, int size)
 		current_chunk++;
 	}
 }
+
+void	sort_b_to_a(t_node **a, t_node **b)
+{
+	int	max;
+
+	if (!(*b))
+		return ;
+	while (*b)
+	{
+		max = get_max_index(*b);
+		while ((*b)->index != max)
+		{
+			if (get_position(*b, max) < (list_size(b) / 2))
+				rb(b);
+			else
+				rrb(b);
+		}
+		pa(b, a);
+	}
+}

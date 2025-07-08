@@ -29,18 +29,21 @@ void	rotate(t_node **head)
 void	ra(t_node **a)
 {
 	rotate(a);
-	printf("ra\n");
+	write(1, "ra\n", 3);
+
 }
 
 void	rb(t_node **b)
 {
 	rotate(b);
-	printf("rb\n");
+	write(1, "rb\n", 3);
+
 }
 
 void	rr(t_node **a, t_node **b)
 {
 	rotate(a);
 	rotate(b);
-	printf("rr\n");
+	write(1, "rr\n", 3);
+
 }

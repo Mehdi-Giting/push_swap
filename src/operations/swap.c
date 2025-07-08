@@ -34,18 +34,21 @@ void	swap_top(t_node **head)
 void	sa(t_node **a)
 {
 	swap_top(a);
-	printf("sa\n");
+	write(1, "sa\n", 3);
+
 }
 
 void	sb(t_node **b)
 {
 	swap_top(b);
-	printf("sb\n");
+	write(1, "sb\n", 3);
+
 }
 
 void	ss(t_node **a, t_node **b)
 {
 	swap_top(a);
 	swap_top(b);
-	printf("ss\n");
+	write(1, "ss\n", 3);
+
 }

@@ -72,17 +72,3 @@ int	is_sorted(t_node **head)
 	}
 	return (1);
 }
-
-void	print_list(t_node **head)
-{
-	t_node	*tmp_node;
-
-	tmp_node = *head;
-	if (*head == NULL)
-		return ;
-	while (tmp_node)
-	{
-		printf("[num: %i | idx: %i]", tmp_node->number, tmp_node->index);
-		tmp_node = tmp_node->next;
-	}
-}

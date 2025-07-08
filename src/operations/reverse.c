@@ -29,18 +29,19 @@ void	reverse_rotate(t_node **head)
 void	rra(t_node **a)
 {
 	reverse_rotate(a);
-	printf("rra\n");
+	write(1, "rra\n", 3);
+
 }
 
 void	rrb(t_node **b)
 {
 	reverse_rotate(b);
-	printf("rrb\n");
+	write(1, "rrb\n", 3);
 }
 
 void	rrr(t_node **a, t_node **b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	printf("rrr\n");
+	write(1, "rrr\n", 3);
 }

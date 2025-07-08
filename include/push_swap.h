@@ -26,6 +26,7 @@ typedef struct s_node
 
 int		check_input(int argc, char **argv);
 int		check_duplicate(int argc, char **argv);
+int		error_check(int argc, char **argv);
 int		ft_atoi(char *s);
 t_node	*create_node(int value);
 void	add_back(t_node **head, t_node *new_node);

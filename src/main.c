@@ -19,13 +19,8 @@ int	main(int argc, char **argv)
 	
 	int		*array;
 	int		size;
-	if (argc < 2)
+	if (error_check(argc, argv) == 0)
 		return (0);
-	if (!check_input(argc, argv) || !check_duplicate(argc, argv))
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
 	stack_a = init_stack_a(argc, argv);
 	if (!stack_a)
 		return (1);
@@ -38,6 +33,7 @@ int	main(int argc, char **argv)
 	free(array);
 	push_chunk_to_b(&stack_a, &stack_b, size);
 	sort_b_to_a(&stack_a, &stack_b);
+	print_list(&stack_a);
 	free_list(&stack_a);
 	free_list(&stack_b);
 	return (0);
